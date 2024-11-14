@@ -1,0 +1,31 @@
+.play {
+    .weapon-list {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+    }
+    .weapon-icon {
+        width: 40px;
+        height: 40px;
+        margin: 0 auto;
+    }
+    .monster-grid {
+        display: grid;
+        grid-template-columns: repeat(16, 1fr);
+        grid-gap: 10px;
+        margin-top: 20px;
+        .monster-card {
+            display: flex;
+            flex-direction: column;
+
+            .monster-icon {
+                margin: 0 auto;
+            }
+            .monster-name {
+                text-align: center;
+                margin-top: 10px;
+                font-size: 1rem;
+            }
+        }
+    }
+}

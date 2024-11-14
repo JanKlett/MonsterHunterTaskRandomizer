@@ -1,5 +1,6 @@
-import * as games from "./game-icons/game-icons";
-
+import games from "./game-icons/game-icons";
+import weaponIcons from "./game-icons/weapon-icons/weapon-icons";
+import monsterIconsMHW from "./monster-icons/mhworld/monster-icons-mhw";
 
 /**
  * Returns the icon component for the given svg-icon name.
@@ -10,17 +11,15 @@ import * as games from "./game-icons/game-icons";
  * @returns {JSX.Element} the icon component
  */
 export default function getIcon(name) {
-  switch (name) {
-    case "mhworld":
-      return games.mhworld;
-    case "mhworldiceborne":
-      return games.mhworldiceborne;
-    case "mhrise":
-      return games.mhrise;
-    case "mhrisesunbreak":
-      return games.mhrisesunbreak;
-    default:
-      console.warn("Icon not found: " + name);
-      return null;
+  if (games[name]) {
+    return games[name];
+  } else if (weaponIcons[name]) {
+    return weaponIcons[name];
+  } else if (monsterIconsMHW[name]) {
+    return monsterIconsMHW[name];
+  }
+  else {
+    console.error(`Icon not found: ${name}`);
+    return null;
   }
 }
