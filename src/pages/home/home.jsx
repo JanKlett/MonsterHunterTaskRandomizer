@@ -25,7 +25,7 @@ export default function Home() {
 
   const onGameSelect = (game) => {
     setSelectedGame(game);
-    ConfigManager.set("game", game);
+    ConfigManager.setGame("game", game);
     if (ConfigManager.load()) {
       setSelectedPlayerCount(ConfigManager.config.playerCount);
       setSaveConfig(ConfigManager.config.saveConfig);
@@ -54,7 +54,7 @@ export default function Home() {
   };
 
   const onStartGame = () => {
-    navigate(`/player?game=${selectedGame}`);
+    navigate(`/play?game=${selectedGame}`);
   };
 
   return (
