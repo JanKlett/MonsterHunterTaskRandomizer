@@ -1,0 +1,48 @@
+{
+  "ui": {
+    "title": "Vokabular Training",
+    "main": {
+      "title": "Willkommen bei VocabTraining!",
+      "description": {
+        "title": "Was ist VocabTraining?",
+        "text": "VocabTraining ist eine simple App zum Vokabeln lernen. Du kannst neue Vokabeln hinzufügen, sie trainieren und dir eine Liste deiner Vokabeln anzeigen lassen."
+      },
+      "buttons": {
+        "add": "Neue Vokabel hinzufügen",
+        "train": "Vokabeln trainieren",
+        "show": "Zeig mir meine Vokabeln",
+        "start": "Ein neues Vokabular anlegen",
+        "import": "Vokabular importieren",
+        "export": "Vokabular exportieren"
+      }
+    },
+    "config": {
+      "language": {
+        "label": "Sprache:",
+        "options": {
+          "us": "Englisch (US)",
+          "de": "Deutsch",
+          "fr": "Französisch",
+          "es": "Spanisch",
+          "it": "Italienisch",
+          "jp": "Japanisch",
+          "cn": "Chinesisch",
+          "ru": "Russisch"
+        }
+      },
+      "theme": {
+        "label": "Theme: ",
+        "options": {
+          "light": "Hell",
+          "dark": "Dunkel"
+        }
+      }
+    }
+  },
+  "metadata": {
+    "appname": "VocabTraining",
+    "appversion": "1.0",
+    "appauthor": "Jan Klett",
+    "appdescription": "Eine simple App zum Vokabeln lernen."
+  }
+}

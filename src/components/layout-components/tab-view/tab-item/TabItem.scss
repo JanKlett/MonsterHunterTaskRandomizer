@@ -1,0 +1,21 @@
+.tab-item {
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  position: relative;
+  text-align: center;
+  border-bottom: 1px solid var(--accent);
+  user-select: none;
+
+
+
+  &:hover {
+    background-color: var(--secondary-background);
+  }
+  
+  &.tab-item-active {
+    background-color: var(--secondary-background);
+    color: var(--accent);
+  }
+
+}

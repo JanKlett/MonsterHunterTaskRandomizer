@@ -1,0 +1,62 @@
+.tree-item {
+  margin: 0;
+  padding: 1rem;
+  cursor: pointer;
+  border-bottom: 1px solid var(--border);
+
+  .tree-item-content {
+    display: flex;
+    align-items: center;
+    height: 2rem;
+
+    .tree-item-icon {
+      font-size: 1.2rem;
+      margin-right: 1rem;
+      .icon {
+        width: 1.2rem;
+        height: 1.2rem;
+        text-align: center;
+      }
+    }
+
+    .tree-item-text {
+      font-size: 1.1rem;
+      font-weight: bold;
+      margin: 0;
+    }
+  }
+}
+
+.tree-item:hover {
+  background-color: var(--hover-color);
+  color: var(--text-light);
+  .icon {
+    fill: var(--text-light);
+  }
+}
+
+.tree-item:active {
+  background-color: var(--click-color);
+  color: var(--text-light);
+  .icon {
+    fill: var(--text-light);
+  }
+}
+.tree-item-selected {
+  cursor: auto;
+  background-color: var(--click-color);
+  color: var(--text-light);
+  &:hover {
+    background-color: var(--click-color);
+    color: var(--text-light);
+    .icon {
+      fill: var(--text-light);
+    }
+  }
+  .icon {
+    fill: var(--text-light);
+  }
+}
+.tree-item:last-child {
+  border-bottom: none;
+}

@@ -1,0 +1,65 @@
+.home {
+  .home-card {
+    width: 60%;
+    min-height: 80%;
+    position: relative;
+
+    .home-text-block {
+      margin: 0;
+    }
+    .home-button-container {
+      .home-button-box-title {
+        margin: auto;
+        width: max-content;
+      }
+      .home-button-box-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 10px;
+        margin-top: 10px;
+
+        .home-game-button {
+          padding: 2px;
+          .button-box-button {
+            padding: 2px;
+            .icon {
+              margin: 0;
+              width: 10em;
+              height: 5em;
+            }
+          }
+        }
+      }
+    }
+  }
+  .home-player-popup {
+    .home-player-popup-content {
+      .popup-player-count {
+        grid-template-columns: 2fr 1fr;
+        align-items: center;
+        .number-box-label {
+          font-size: 1.1em;
+          .number-box-label-text {
+            margin: 0;
+          }
+        }
+        .number-box {
+          height: min-content;
+          background-color: var(--background);
+        }
+      }
+      .home-player-popup-text {
+        margin-top: 0;
+
+        .text-block-content {
+          margin: 0;
+          font-size: 0.8em;
+        }
+      }
+      .popup-start-button {
+        border: 1px solid var(--main-color);
+        border-radius: 20px;
+      }
+    }
+  }
+}

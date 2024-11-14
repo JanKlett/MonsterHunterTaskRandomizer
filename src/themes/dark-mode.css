@@ -1,0 +1,44 @@
+.dark-mode {
+  --main-color: #007bff; /* Main color for the page in dark mode */
+  --hover-color: #0056b3; /* Hover color for the page in dark mode */
+  --click-color: #003d80; /* Click color for the page in dark mode */
+  --background: #121212; /* Dark background color */
+  --secondary-background: #222222; /* Secondary background color in dark mode */
+  --border: #444444; /* Border color in dark mode */
+
+  --text: #ffffff; /* Light text color on dark background */
+  --text-light: #ffffff; /* Light text color on dark background */
+  --text-dark: #333333; /* Dark text color on light background */
+  --accent: var(
+    --main-color
+  ); /* Accent color for highlights and links in dark mode */
+
+  --canvas-background: #000000; /* Background color for canvas in dark mode */
+  --canvas-text: #ffffff; /* Text color for canvas in dark mode */
+  --canvas-main: #ffffff; /* Main color for canvas in dark mode */
+  --canvas-border: #ffffff; /* Border color for canvas in dark mode */
+
+
+  --button-background: var(
+    --main-color
+  ); /* Button background color in dark mode */
+  --button-hover: var(
+    --hover-color
+  ); /* Button background color on hover in dark mode */
+  --button-click: var(
+    --click-color
+  ); /* Button background color when clicked in dark mode */
+  --button-text: var(--text); /* Button text color in dark mode */
+  --button-text-hover: var(
+    --text
+  ); /* Button text color on hover in dark mode */
+  --button-text-click: var(
+    --text
+  ); /* Button text color when clicked in dark mode */
+
+  --link-hover: var(--hover-color); /* Link color on hover in dark mode */
+  --link-click: var(--click-color); /* Link color when clicked in dark mode */
+
+  --code-background: #1e1e1e; /* Background color for code blocks in dark mode */
+  --code-text: #ffffff; /* Text color for code blocks in dark mode */
+}

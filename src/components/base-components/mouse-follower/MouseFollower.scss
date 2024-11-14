@@ -1,0 +1,15 @@
+.mouse-follower {
+    position: absolute;
+    pointer-events: none;
+    z-index: 100;
+    transform: translate(-50%, -50%);
+
+    .mouse-follower-content {
+        width: 100%;
+        height: 100%;
+        min-width: 5px;
+        min-height: 5px;
+        border-radius: 5px;
+
+    }
+}

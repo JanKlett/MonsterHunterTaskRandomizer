@@ -1,0 +1,54 @@
+.button-box {
+  width: 100%;
+  margin: 0;
+  padding: 1rem;
+  overflow: hidden;
+  user-select: none;
+
+  .button-box-button {
+    position: relative;
+    appearance: none;
+    outline: none;
+    border: none;
+    background: none;
+    width: 100%;
+
+    .button-box-title {
+      display: flex;
+      font-size: 1.2rem;
+      font-weight: bold;
+      width: 100%;
+      margin: 0;
+      justify-self: start;
+      color: var(--text);
+
+      .icon {
+        font-size: 1.2rem;
+        margin-right: 1rem;
+        width: 1.2rem;
+        height: 1.2rem;
+        text-align: center;
+        color: var(--text);
+      }
+      span {
+        margin: auto
+      }
+    }
+  }
+  &:hover,
+  &:focus {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+  &:active {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+}
+.disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+
+  .button-box-button {
+    cursor: not-allowed;
+  }
+}

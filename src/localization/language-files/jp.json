@@ -1,0 +1,39 @@
+{
+    "ui": {
+      "title": "語彙トレーニング",
+      "main": {
+        "title": "へようこそ VocabTraining!",
+        "description": {
+          "title": "とは VocabTraining?",
+          "text": "VocabTraining は、語彙力をトレーニングするのに役立つシンプルなアプリです。新しい単語とその翻訳を追加し、クイズでトレーニングすることができます。アプリはあなたの進歩を追跡し、さらに練習する必要がある単語を表示します"
+        },
+        "buttons": {
+          "add": "新しい語彙を追加する",
+          "train": "電車の語彙",
+          "show": "完全な語彙を表示"
+        }
+      },
+      "config": {
+        "language": {
+          "label": "言語: ",
+          "options": {
+            "us": "英語 (米国)",
+            "de": "ドイツ人",
+            "fr": "フランス語",
+            "es": "スペイン語",
+            "it": "イタリアの",
+            "jp": "日本語",
+            "cn": "中国語",
+            "ru": "ロシア"
+          }
+        }
+      }
+    },
+    "metadata": {
+      "appname": "VocabTraining",
+      "appversion": "1.0",
+      "appauthor": "Jan Klett",
+      "appdescription": "A simple vocabulary training app"
+    }
+  }
+  

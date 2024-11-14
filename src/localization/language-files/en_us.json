@@ -1,0 +1,75 @@
+{
+  "ui": {
+    "title": "Monster Hunter Task Randomizer",
+    "main": {
+      "title": "Welcome to Monster Hunter Task Randomizer (MHTR)!",
+      "description": {
+        "title": "What is MHTR?",
+        "text1": "MHTR is a tool that helps you to get random tasks for Monster Hunter. These tasks can be used to make the game more interesting, find something to do or to challenge yourself.",
+        "text2": "Task can be anything from 'Hunt a Rathalos' to 'Hunt a Elder Dragon with a Great Sword without using Items'. Tasks can be generated for up to 4 Players at once.",
+        "text3": "What is part of the tasks is up to you. You can choose to only generate a monster to hunt or to add additional conditions like weapon restrictions or additional challenges.",
+        "text4": "Now just select which game you're playing and how many players are in your group and you're ready to go!"
+      },
+      "games": {
+        "title": "Select Game",
+        "mhworld": "Monster Hunter World",
+        "mhworldiceborne": "Monster Hunter World: Iceborne",
+        "mhrise": "Monster Hunter Rise",
+        "mhrisesunbreak": "Monster Hunter Rise: Sunbreak"
+      },
+      "player-popup": {
+        "title": "Select Number of Players",
+        "input-label": "Player count",
+        "description": "Between 1 and 4 players. The Count can be changed later.",
+        "save-config": "Save Configuration between Sessions",
+        "start-button": "Start"
+      }
+    },
+    "game-config": {
+      "weapon-classes": {
+        "title": "Weapon Classes",
+        "greatsword": "Great Sword",
+        "longsword": "Long Sword",
+        "swordandshield": "Sword and Shield",
+        "dualblades": "Dual Blades",
+        "hammer": "Hammer",
+        "huntinghorn": "Hunting Horn",
+        "lance": "Lance",
+        "gunlance": "Gunlance",
+        "switchaxe": "Switch Axe",
+        "chargeblade": "Charge Blade",
+        "insectglaive": "Insect Glaive",
+        "bow": "Bow",
+        "lightbowgun": "Light Bowgun",
+        "heavybowgun": "Heavy Bowgun"
+      },
+      "default-player-names": {
+        "player1": "Player 1",
+        "player2": "Player 2",
+        "player3": "Player 3",
+        "player4": "Player 4"
+      }
+    },
+    "config": {
+      "language": {
+        "label": "Language: ",
+        "options": {
+          "us": "English (US)"
+        }
+      },
+      "theme": {
+        "label": "Theme: ",
+        "options": {
+          "light": "Light",
+          "dark": "Dark"
+        }
+      }
+    }
+  },
+  "metadata": {
+    "appname": "VocabTraining",
+    "appversion": "1.0",
+    "appauthor": "Jan Klett",
+    "appdescription": "A simple vocabulary training app"
+  }
+}

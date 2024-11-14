@@ -1,0 +1,61 @@
+1. The Challenge is rerolled after the
+previous Quest is completed or failed.
+(Note: If the Quest has failed the Player
+can choose to try again instead of rerolling)
+
+2. The Player may use what ever Items
+and Armor he wants, unless the Challenge
+states otherwise.
+
+3. As there are some harder Challenges, this
+Randomizer is mainly ment for solo use or 
+together with friends.
+
+4. The Challenge 'Dull Weapon' prohibits
+the use of the Whetstone or Whetfishscales
+
+5. The Challenge 'YOLO' means that the Player 
+has to abandon the Quest after the first faint,
+no matter how many faints are technically allowed.
+In Multiplayer, the Player either has to either 
+abandon or wait in the Camp, he may not help any 
+further in the Hunt.
+
+6. The Challenge 'No Dodging' prohibits
+the Player from dodge rolling and diving.
+(Overall use of X or B Button and Spacebar)
+The Player may still avoid attacks via spacing
+or blocking, if the weapon allows it.
+
+7. The Challenge 'Bombs only' and 'Palico only'
+prohibit the Use of Weapons to directly attack
+the Monster, instead they may only be used as
+a way to set of the Barrel Bombs or as a means
+of support for the Palico (Hunting Horn Buff/
+Demon Ammo and etc.)
+
+8. The Challenge 'No Items' prohibits the use
+of all Items, except for Hot/Cold Drinks,
+Palico Gadgets and Specialized Tools.
+
+9. The Challenge 'Survivor' prohibits the
+Player from taking any Items with him, upon
+starting the Quest, however the Player may
+gather Resources to craft Items.
+ 
+10. In the Challenge 'You are, what you Hunt',
+the Player must use, both Weapon and Armor made
+out of the assigned Monster. In case this is
+the Players first hunt of said Monster, you
+may not us Armor and a Weapon of the Ore Weapon
+Tree. 
+
+11. In the Challenge 'Like in the old Days', the
+Player must stand still while using items, can't
+do Sliding-Attacks and can't use the Specialized 
+Tools, like back in the Days of MH Tri or similar.
+ 
+12. In the Challenge 'Two Monsters', the
+Player must take a Quest containing both
+Monsters, if no such Quest is availabe, the Player
+can only hunt the first one to succeed.

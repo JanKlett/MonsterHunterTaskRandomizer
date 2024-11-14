@@ -1,0 +1,38 @@
+/* Light Mode Colors */
+.light-mode {
+  --main-color: #007bff; /* Main color for the page in light mode */
+  --hover-color: #0056b3; /* Hover color for the page in light mode */
+  --click-color: #003d80; /* Click color for the page in light mode */
+  --background: #ffffff; /* Light background color */
+  --secondary-background: #e5e5e5; /* Secondary background color in light mode */
+  --border: #bbbbbb; /* Border color in light mode */
+
+  --text: #333333; /* Dark text color on light background */
+  --text-light: #ffffff; /* Light text color on dark background */
+  --text-dark: #333333; /* Dark text color on light background */
+  --accent: var(--main-color); /* Accent color for highlights and links */
+  
+  --canvas-background: #ffffff; /* Background color for canvas in dark mode */
+  --canvas-text: #000000; /* Text color for canvas in dark mode */
+  --canvas-main: #000000; /* Main color for canvas in dark mode */
+  --canvas-border: #000000; /* Border color for canvas in dark mode */
+
+  --button-background: var(
+    --main-color
+  ); /* Button background color in light mode */
+  --button-hover: var(
+    --hover-color
+  ); /* Button background color on hover in light mode */
+  --button-click: var(
+    --click-color
+  ); /* Button background color when clicked in light mode */
+  --button-text: #ffffff; /* Button text color in light mode */
+  --button-text-hover: #ffffff; /* Button text color on hover in light mode */
+  --button-text-click: #ffffff; /* Button text color when clicked in light mode */
+
+  --link-hover: var(--hover-color); /* Link color on hover in light mode */
+  --link-click: var(--click-color); /* Link color when clicked in light mode */
+
+  --code-background: #f5f5f5; /* Background color for code blocks in light mode */
+  --code-text: #000000; /* Text color for code blocks in light mode */
+}
