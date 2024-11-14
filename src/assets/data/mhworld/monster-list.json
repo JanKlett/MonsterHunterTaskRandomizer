@@ -124,7 +124,7 @@
         "key": "brachydios",
         "isDLC": true,
         "isEvent": false,
-        "dangerLevel": 4,
+        "dangerLevel": 5,
         "maps": [
             0,0,0,0,1,0
         ]
@@ -220,7 +220,7 @@
         ]
     },
     {
-        "id": 20,
+        "id": 22,
         "key": "furious-rajang",
         "isDLC": true,
         "isEvent": true,
@@ -230,7 +230,7 @@
         ]
     },
     {
-        "id": 21,
+        "id": 23,
         "key": "glavenus",
         "isDLC": true,
         "isEvent": false,
@@ -240,7 +240,7 @@
         ]
     },
     {
-        "id": 22,
+        "id": 24,
         "key": "gold-rathian",
         "isDLC": true,
         "isEvent": true,
@@ -250,7 +250,7 @@
         ]
     },
     {
-        "id": 23,
+        "id": 25,
         "key": "great-girros",
         "isDLC": false,
         "isEvent": false,
@@ -260,7 +260,7 @@
         ]
     },
     {
-        "id": 24,
+        "id": 26,
         "key": "great-jagras",
         "isDLC": false,
         "isEvent": false,
@@ -270,7 +270,7 @@
         ]
     },
     {
-        "id": 25,
+        "id": 27,
         "key": "jyuratodus",
         "isDLC": false,
         "isEvent": false,
@@ -280,7 +280,7 @@
         ]
     },
     {
-        "id": 26,
+        "id": 28,
         "key": "kirin",
         "isDLC": false,
         "isEvent": false,
@@ -290,7 +290,7 @@
         ]
     },
     {
-        "id": 27,
+        "id": 29,
         "key": "kulu-ya-ku",
         "isDLC": false,
         "isEvent": false,
@@ -300,7 +300,7 @@
         ]
     },
     {
-        "id": 28,
+        "id": 30,
         "key": "kulve-taroth",
         "isDLC": true,
         "isEvent": true,
@@ -310,7 +310,7 @@
         ]
     },
     {
-        "id": 29,
+        "id": 31,
         "key": "kushala-daora",
         "isDLC": false,
         "isEvent": false,
@@ -320,7 +320,7 @@
         ]
     },
     {
-        "id": 30,
+        "id": 32,
         "key": "lavasioth",
         "isDLC": false,
         "isEvent": false,
@@ -330,7 +330,7 @@
         ]
     },
     {
-        "id": 31,
+        "id": 33,
         "key": "legiana",
         "isDLC": false,
         "isEvent": false,
@@ -340,7 +340,7 @@
         ]
     },
     {
-        "id": 32,
+        "id": 34,
         "key": "leshen",
         "isDLC": false,
         "isEvent": true,
@@ -350,7 +350,7 @@
         ]
     },
     {
-        "id": 32,
+        "id": 35,
         "key": "lunastra",
         "isDLC": false,
         "isEvent": false,
@@ -360,7 +360,7 @@
         ]
     },
     {
-        "id": 33,
+        "id": 36,
         "key": "namielle",
         "isDLC": true,
         "isEvent": false,
@@ -370,7 +370,7 @@
         ]
     },
     {
-        "id": 34,
+        "id": 37,
         "key": "nargacuga",
         "isDLC": true,
         "isEvent": false,
@@ -380,7 +380,7 @@
         ]
     },
     {
-        "id": 35,
+        "id": 38,
         "key": "nergigante",
         "isDLC": false,
         "isEvent": false,
@@ -388,6 +388,315 @@
         "maps": [
             0,0,0,0,1,0
         ]
+    },
+    {
+        "id": 39,
+        "key": "nightshade-paolumu",
+        "isDLC": true,
+        "isEvent": false,
+        "dangerLevel": 4,
+        "maps": [
+            1,1,0,0,0,0
+        ]
+    },
+    {
+        "id": 40,
+        "key": "odogaron",
+        "isDLC": false,
+        "isEvent": false,
+        "dangerLevel": 4,
+        "maps": [
+            0,0,1,1,0,0
+        ]
+    },
+    {
+        "id": 41,
+        "key": "paolumu",
+        "isDLC": false,
+        "isEvent": false,
+        "dangerLevel": 2,
+        "maps": [
+            0,0,1,0,0,0
+        ]
+    },
+    {
+        "id": 42,
+        "key": "pink-rathian",
+        "isDLC": false,
+        "isEvent": false,
+        "dangerLevel": 5,
+        "maps": [
+            0,1,1,0,0,0
+        ]
+    },
+    {
+        "id": 43,
+        "key": "pukei-pukei",
+        "isDLC": false,
+        "isEvent": false,
+        "dangerLevel": 2,
+        "maps": [
+            1,1,0,0,0,0
+        ]
+    },
+    {
+        "id": 44,
+        "key": "radobaan",
+        "isDLC": false,
+        "isEvent": false,
+        "dangerLevel": 3,
+        "maps": [
+            0,0,0,1,0,0
+        ]
+    },
+    {
+        "id": 45,
+        "key": "raging-brachydios",
+        "isDLC": true,
+        "isEvent": true,
+        "dangerLevel": 6,
+        "maps": [
+            0,0,0,0,0,0
+        ]
+    },
+    {
+        "id": 46,
+        "key": "rajang",
+        "isDLC": true,
+        "isEvent": false,
+        "dangerLevel": 5,
+        "maps": [
+            0,0,0,0,0,0
+        ]
+    },
+    {
+        "id": 47,
+        "key": "rathalos",
+        "isDLC": false,
+        "isEvent": false,
+        "dangerLevel": 4,
+        "maps": [
+            1,0,0,0,1,0
+        ]
+    },
+    {
+        "id": 48,
+        "key": "rathian",
+        "isDLC": false,
+        "isEvent": false,
+        "dangerLevel": 4,
+        "maps": [
+            1,1,0,0,0,0
+        ]
+    },
+    {
+        "id": 49,
+        "key": "ruiner-nergigante",
+        "isDLC": true,
+        "isEvent": true,
+        "dangerLevel": 7,
+        "maps": [
+            0,0,0,0,0,0
+        ]
+    },
+    {
+        "id": 50,
+        "key": "safi'jiiva",
+        "isDLC": true,
+        "isEvent": true,
+        "dangerLevel": 8,
+        "maps": [
+            0,0,0,0,0,0
+        ]
+    },
+    {
+        "id": 51,
+        "key": "savage-deviljho",
+        "isDLC": true,
+        "isEvent": true,
+        "dangerLevel": 5,
+        "maps": [
+            1,1,1,1,1,1
+        ]
+    },
+    {
+        "id": 52,
+        "key": "scarred-yian-garuga",
+        "isDLC": true,
+        "isEvent": true,
+        "dangerLevel": 6,
+        "maps": [
+            0,0,0,0,0,0
+        ]
+    },
+    {
+        "id": 53,
+        "key": "seething-bazelgeuse",
+        "isDLC": true,
+        "isEvent": false,
+        "dangerLevel": 5,
+        "maps": [
+            0,0,0,0,1,0
+        ]
+    },
+    {
+        "id": 54,
+        "key": "shara-ishvalda",
+        "isDLC": true,
+        "isEvent": true,
+        "dangerLevel": 7,
+        "maps": [
+            0,0,0,0,0,0
+        ]
+    },
+    {
+        "id": 55,
+        "key": "shrieking-legiana",
+        "isDLC": true,
+        "isEvent": false,
+        "dangerLevel": 5,
+        "maps": [
+            0,0,0,0,0,1
+        ]
+    },
+    {
+        "id": 56,
+        "key": "silver-rathalos",
+        "isDLC": true,
+        "isEvent": true,
+        "dangerLevel": 6,
+        "maps": [
+            0,0,0,0,0,0
+        ]
+    },
+    {
+        "id": 57,
+        "key": "stygian-zinogre",
+        "isDLC": true,
+        "isEvent": true,
+        "dangerLevel": 5,
+        "maps": [
+            0,0,0,0,0,0
+        ]
+    },
+    {
+        "id": 58,
+        "key": "teostra",
+        "isDLC": false,
+        "isEvent": false,
+        "dangerLevel": 6,
+        "maps": [
+            0,1,0,0,1,0
+        ]
+    },
+    {
+        "id": 59,
+        "key": "tigrex",
+        "isDLC": true,
+        "isEvent": false,
+        "dangerLevel": 4,
+        "maps": [
+            1,1,1,1,1,1
+        ]
+    },
+    {
+        "id": 60,
+        "key": "tobi-kadachi",
+        "isDLC": false,
+        "isEvent": false,
+        "dangerLevel": 2,
+        "maps": [
+            1,0,0,0,0,0
+        ]
+    },
+    {
+        "id": 61,
+        "key": "tzitzi-ya-ku",
+        "isDLC": false,
+        "isEvent": false,
+        "dangerLevel": 1,
+        "maps": [
+            0,0,1,0,0,0
+        ]
+    },
+    {
+        "id": 62,
+        "key": "uragaan",
+        "isDLC": false,
+        "isEvent": false,
+        "dangerLevel": 3,
+        "maps": [
+            0,0,0,0,1,0
+        ]
+    },
+    {
+        "id": 63,
+        "key": "vaal-hazak",
+        "isDLC": false,
+        "isEvent": false,
+        "dangerLevel": 6,
+        "maps": [
+            0,0,0,1,0,0
+        ]
+    },
+    {
+        "id": 64,
+        "key": "velkhana",
+        "isDLC": true,
+        "isEvent": false,
+        "dangerLevel": 6,
+        "maps": [
+            1,1,1,1,1,1
+        ]
+    },
+    {
+        "id": 65,
+        "key": "viper-tobi-kadachi",
+        "isDLC": true,
+        "isEvent": false,
+        "dangerLevel": 3,
+        "maps": [
+            0,0,0,0,0,1
+        ]
+    },
+    {
+        "id": 66,
+        "key": "xeno'jiiva",
+        "isDLC": false,
+        "isEvent": true,
+        "dangerLevel": 6,
+        "maps": [
+            0,0,0,0,0,0
+        ]
+    },
+    {
+        "id": 67,
+        "key": "yian-garuga",
+        "isDLC": true,
+        "isEvent": true,
+        "dangerLevel": 5,
+        "maps": [
+            0,0,0,0,0,0
+        ]
+    },
+    {
+        "id": 68,
+        "key": "zinogre",
+        "isDLC": true,
+        "isEvent": false,
+        "dangerLevel": 4,
+        "maps": [
+            1,0,1,0,0,0
+        ]
+    },
+    {
+        "id": 69,
+        "key": "zorah-magdaros",
+        "isDLC": false,
+        "isEvent": true,
+        "dangerLevel": 7,
+        "maps": [
+            0,0,0,0,0,0
+        ]
     }
-
 ]
