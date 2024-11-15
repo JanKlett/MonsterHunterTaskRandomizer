@@ -6,8 +6,9 @@ import Checkbox from "../../components/controll-components/check-box/Checkbox";
 import SingleCard from "../../layouts/single-card/SingleCard";
 import TextBlock from "../../components/base-components/text-block/TextBlock";
 import Popup from "../../components/layout-components/popup/Popup";
-import ConfigManager from "../../utils/config-manager";
+import ConfigManager, {dlcNames} from "../../utils/config-manager";
 import { getLocalizedString } from "../../localization/localization";
+import { resetMonsterList } from "../../utils/randomizer-logic";
 
 import "./home.scss";
 
@@ -18,17 +19,18 @@ import "./home.scss";
  */
 export default function Home() {
   const [popupOpen, setPopupOpen] = useState(false);
-  const [selectedGame, setSelectedGame] = useState(null);
   const [selectedPlayerCount, setSelectedPlayerCount] = useState(1);
   const [saveConfig, setSaveConfig] = useState(false);
   const navigate = useNavigate();
 
   const onGameSelect = (game) => {
-    setSelectedGame(game);
-    ConfigManager.setGame("game", game);
-    if (ConfigManager.load()) {
-      setSelectedPlayerCount(ConfigManager.config.playerCount);
-      setSaveConfig(ConfigManager.config.saveConfig);
+    console.log("Game selected: " + game);
+
+    if (ConfigManager.setGame(game)) {
+      if (game === "mhworld") {
+        console.log("Disable DLC");
+        ConfigManager.disableDLC();
+      }
       onStartGame();
     } else {
       setPopupOpen(true);
@@ -39,7 +41,6 @@ export default function Home() {
 
   const onPopupClose = () => {
     setPopupOpen(false);
-    setSelectedGame(null);
     ConfigManager.reset();
   };
 
@@ -54,7 +55,8 @@ export default function Home() {
   };
 
   const onStartGame = () => {
-    navigate(`/play?game=${selectedGame}`);
+    resetMonsterList();
+    navigate({pathname: `/play`, search: `?game=${ConfigManager.get("game")}${ConfigManager.get("dlc") ? dlcNames[ConfigManager.get("game")] : ""}`});
   };
 
   return (
@@ -112,6 +114,7 @@ export default function Home() {
                 onClick={() => {
                   onGameSelect("mhrise");
                 }}
+                disabled={true}
               />
               <ButtonBox
                 className="home-game-button"
@@ -140,6 +143,7 @@ export default function Home() {
                 onClick={() => {
                   onGameSelect("mhrisesunbreak");
                 }}
+                disabled={true}
               />
             </div>
           </div>

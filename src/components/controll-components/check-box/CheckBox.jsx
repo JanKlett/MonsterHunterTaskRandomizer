@@ -18,7 +18,6 @@ export default function CheckBox(props) {
   const { label, checked, onChange, className, dir } = props;
 
   const onCheck = () => {
-    console.log("onCheck", checked, "->", !checked);
     onChange(!checked);
   };
 

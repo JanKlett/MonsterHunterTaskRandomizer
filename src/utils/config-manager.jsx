@@ -1,5 +1,7 @@
 import { getLocalizedString } from "../localization/localization";
 import CookieManager from "./cookie-manager";
+import mhwMonsterList from "../assets/data/mhworld/monster-list.json";
+import {resetMonsterList} from "./randomizer-logic";
 
 const weaponClasses = [
   "greatsword",
@@ -32,6 +34,11 @@ const getDefaultPlayer = (index) => {
       previousChallenge: [-1],
     })
   );
+};
+
+const dlcNames = {
+  mhworld: "iceborne",
+  mhrise: "sunbreak",
 };
 
 /**
@@ -72,12 +79,7 @@ const ConfigManager = {
    */
   set: (key, value) => {
     ConfigManager.config[key] = value;
-    if (ConfigManager.saveConfig) {
-      localStorage.setItem(
-        `${ConfigManager.config.game}-config`,
-        JSON.stringify(ConfigManager.config)
-      );
-    }
+    ConfigManager.save();
   },
   /**
    * Set the game in the config
@@ -98,8 +100,34 @@ const ConfigManager = {
         ConfigManager.config.game = "mhrise";
         break;
       default:
+        ConfigManager.config.dlc = false;
         ConfigManager.config.game = game;
     }
+    if (!ConfigManager.load()) {
+      if (ConfigManager.config.game === "mhworld") {
+        ConfigManager.config.allowedMonsters = mhwMonsterList.map(
+          (monster) => !(monster.isDLC && !ConfigManager.config.dlc)
+        );
+      }
+      ConfigManager.save();
+      return false;
+    }
+    ConfigManager.save();
+    resetMonsterList();
+    return true;
+  },
+  /**
+   * Disable DLC monsters in the config
+   *
+   */
+  disableDLC: () => {
+    if (ConfigManager.config.game === "mhworld") {
+      ConfigManager.config.dlc = false;
+      ConfigManager.config.allowedMonsters = mhwMonsterList.map(
+        (monster) => !monster.isDLC
+      );
+    }
+    ConfigManager.save();
   },
   /**
    * Add a player to the config
@@ -117,6 +145,7 @@ const ConfigManager = {
       ConfigManager.players[ConfigManager.config.playerCount - 1] =
         getDefaultPlayer(ConfigManager.config.playerCount - 1);
     }
+    ConfigManager.save();
   },
   /**
    * Remove a player from the config
@@ -134,6 +163,7 @@ const ConfigManager = {
       ConfigManager.players[ConfigManager.config.playerCount] =
         getDefaultPlayer(ConfigManager.config.playerCount);
     }
+    ConfigManager.save();
   },
   /**
    * Load the config from local storage
@@ -147,12 +177,32 @@ const ConfigManager = {
       console.warn("Tried to load config without setting the game");
       return false;
     }
-    const config = localStorage.getItem(`${ConfigManager.config.game}-config`);
+    const config = localStorage.getItem(
+      `${ConfigManager.config.game}${
+        ConfigManager.config.dlc ? "+dlc" : ""
+      }-config`
+    );
+    console.log(`Loading Config: ${ConfigManager.config.game}${
+        ConfigManager.config.dlc ? "+dlc" : ""
+      }-config`);
     if (config) {
       ConfigManager.config = JSON.parse(config);
       return true;
     }
     return false;
+  },
+  /**
+   * Save the config to local storage
+   */
+  save: () => {
+    if (ConfigManager.saveConfig) {
+      localStorage.setItem(
+        `${ConfigManager.config.game}${
+          ConfigManager.config.dlc ? "+dlc" : ""
+        }-config`,
+        JSON.stringify(ConfigManager.config)
+      );
+    }
   },
   /**
    * Set the saveConfig value
@@ -168,10 +218,16 @@ const ConfigManager = {
     ConfigManager.saveConfig = save;
     CookieManager.setCookie("saveConfig", save, 24 * 100);
     if (!save) {
-      localStorage.removeItem(`${ConfigManager.config.game}-config`);
+      localStorage.removeItem(
+        `${ConfigManager.config.game}${
+          ConfigManager.config.dlc ? "+dlc" : ""
+        }-config`
+      );
     } else {
       localStorage.setItem(
-        `${ConfigManager.config.game}-config`,
+        `${ConfigManager.config.game}${
+          ConfigManager.config.dlc ? "+dlc" : ""
+        }-config`,
         JSON.stringify(ConfigManager.config)
       );
     }
@@ -200,8 +256,10 @@ const ConfigManager = {
   /**
    * Remove the config from local storage
    */
-  removeSavedConfig: (game) => {
-    localStorage.removeItem(`${game}-config`);
+  removeSavedConfig: () => {
+    localStorage.removeItem(
+      `${ConfigManager.config.game}${ConfigManager.config.dlc ? "+dlc" : ""}-config`
+    );
   },
   /**
    * Get the weapon class at the given index
@@ -220,6 +278,27 @@ const ConfigManager = {
   getWeaponClasses: () => {
     return weaponClasses;
   },
+  /**
+   * Check if the monster is allowed
+   * @param {Number} monsterId the monster id
+   * @returns {Boolean} true if the monster is allowed, false otherwise
+   */
+  isMonsterAllowed: (monsterId) => {
+    return ConfigManager.config.allowedMonsters[monsterId];
+  },
+  /**
+   * Toggle the monster in the config
+   *
+   * @param {Number} monsterId the monster id
+   * @param {Boolean} state the new state of the monster
+   */
+  toggleMonster: (monsterId, state) => {
+    console.log(`Toggling monster ${monsterId} to ${state}`);
+    ConfigManager.config.allowedMonsters[monsterId] = state;
+    ConfigManager.save();
+    resetMonsterList();
+  },
 };
 
 export default ConfigManager;
+export { dlcNames };

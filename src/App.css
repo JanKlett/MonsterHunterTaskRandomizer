@@ -22,8 +22,9 @@ body,
 .language-selection-box {
   position: absolute;
   top: 0px;
-  right: 0px;
+  right: 40px;
   width: max-content;
+
   .selection-box-title {
     min-width: 150px;
   }
@@ -37,12 +38,14 @@ body,
 .theme-switcher {
   position: absolute;
   top: 0px;
-  left: 0px;
+  left: 40px;
   width: max-content;
-  .switcher-title {
+
+  .selection-box-title {
     min-width: 150px;
+    padding-right: 20px;
   }
-  .switcher-selection {
+  .selection-box-selection {
     min-width: 150px;
     .select {
       min-width: 150px;
