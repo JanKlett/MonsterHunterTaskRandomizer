@@ -1,7 +1,7 @@
 import { getLocalizedString } from "../localization/localization";
 import CookieManager from "./cookie-manager";
 import mhwMonsterList from "../assets/data/mhworld/monster-list.json";
-import {resetMonsterList} from "./randomizer-logic";
+import {resetMonsterList} from "./monster-randomizer-logic";
 
 const weaponClasses = [
   "greatsword",
@@ -25,12 +25,14 @@ const getDefaultPlayer = (index) => {
     JSON.stringify({
       name: getLocalizedString([
         "ui",
-        "player",
+        "game-config",
         "default-player-names",
         "player" + (index + 1),
       ]),
       allowedWeapons: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+      weapon: -1,
       previousWeapon: -1,
+      challenges: [-1],
       previousChallenge: [-1],
     })
   );

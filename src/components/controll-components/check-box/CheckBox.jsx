@@ -22,7 +22,7 @@ export default function CheckBox(props) {
   };
 
   return (
-    <div className={"check-box-wrapper " + +(className ?? className)}>
+    <div className={"check-box-wrapper " + (className && className)}>
       {dir === "rtl" ? (
         <>
           <div className={"check-box "} onClick={onCheck}>

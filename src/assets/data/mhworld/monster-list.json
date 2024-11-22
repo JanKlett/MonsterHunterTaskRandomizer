@@ -302,7 +302,7 @@
     {
         "id": 30,
         "key": "kulve-taroth",
-        "isDLC": true,
+        "isDLC": false,
         "isEvent": true,
         "dangerLevel": 8,
         "maps": [

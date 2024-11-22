@@ -8,7 +8,7 @@ import TextBlock from "../../components/base-components/text-block/TextBlock";
 import Popup from "../../components/layout-components/popup/Popup";
 import ConfigManager, {dlcNames} from "../../utils/config-manager";
 import { getLocalizedString } from "../../localization/localization";
-import { resetMonsterList } from "../../utils/randomizer-logic";
+import { resetMonsterList } from "../../utils/monster-randomizer-logic";
 
 import "./home.scss";
 

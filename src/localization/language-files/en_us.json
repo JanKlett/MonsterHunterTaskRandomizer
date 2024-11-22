@@ -25,6 +25,19 @@
         "start-button": "Start"
       }
     },
+    "play":{
+      "config-drawer": {
+        "title": "Configuration",
+        "monster-selection": {
+          "title": "Monster Selection",
+          "description": "Select the monsters that you want to appear in tasks.",
+          "base-monsters": "Base Monsters",
+          "dlc-monsters": "DLC Monsters",
+          "select-all": "Select All",
+          "deselect-all": "Deselect All"
+        }
+      }
+    },
     "game-config": {
       "weapon-classes": {
         "title": "Weapon Classes",
@@ -51,7 +64,7 @@
       }
     },
     "monsters": {
-      "mhw": {
+      "mhworld": {
         "acidic-glavenus": "Acidic Glavenus",
         "alatreon": "Alatreon",
         "anjanath": "Anjanath",
