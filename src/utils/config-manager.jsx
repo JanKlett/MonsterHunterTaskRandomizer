@@ -31,9 +31,7 @@ const getDefaultPlayer = (index) => {
       ]),
       allowedWeapons: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
       weapon: -1,
-      previousWeapon: -1,
       challenges: [-1],
-      previousChallenge: [-1],
     })
   );
 };
@@ -165,6 +163,17 @@ const ConfigManager = {
       ConfigManager.players[ConfigManager.config.playerCount] =
         getDefaultPlayer(ConfigManager.config.playerCount);
     }
+    ConfigManager.save();
+  },
+  /**
+   * Set the player data in the config
+   *
+   * @param {Number} playerIdx Index of the player
+   * @param {String} key Key of the player data
+   * @param {any} data Value of the player data
+   */
+  setPlayerData: (player, key, data) => {
+    player[key] = data;
     ConfigManager.save();
   },
   /**
@@ -303,4 +312,4 @@ const ConfigManager = {
 };
 
 export default ConfigManager;
-export { dlcNames };
+export { dlcNames, weaponClasses };
