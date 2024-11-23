@@ -6,12 +6,14 @@
     position: absolute;
     left: 50%;
     background-color: var(--background);
-    color: var(--text-color);
+    color: var(--text);
     border: 1px solid var(--border);
     border-radius: 5px;
     margin: auto;
     padding: 0.5em;
     text-align: center;
+    font-size: 1.1em;
+    font-weight: bold;
     min-width: 100px;
     width: max-content;
     max-width: 250px;
@@ -36,7 +38,6 @@
   position: absolute;
   width: 15px;
   height: 15px;
-  transform: translate(-50%, 50%) rotate(45deg);
   background-color: var(--background);
   z-index: -1;
 }
@@ -48,10 +49,12 @@
   left: 50%;
   border-bottom: 1px solid var(--border);
   border-right: 1px solid var(--border);
+  transform: translate(-50%, 50%) rotate(45deg);
 }
 .tooltip-dir-bottom::after {
   top: 0;
   left: 50%;
   border-top: 1px solid var(--border);
   border-left: 1px solid var(--border);
+  transform: translate(-50%, -50%) rotate(45deg);
 }

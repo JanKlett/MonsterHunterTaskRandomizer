@@ -13,6 +13,10 @@ import {
   selectMonster,
   selectSecondMonster,
 } from "../../utils/monster-randomizer-logic";
+import {
+  selectWeaponForPlayer,
+  selectWeaponForAllPlayers,
+} from "../../utils/weapon-randomizer-logic";
 
 import "./play.scss";
 import CheckBox from "../../components/controll-components/check-box/Checkbox";
@@ -61,6 +65,8 @@ export default function Play() {
     let firstMonster = selectMonster();
     let secondMonster = selectSecondMonster(firstMonster);
     setCurrentMonsters([firstMonster, secondMonster]);
+    // Select the initial weapons for all players
+    selectWeaponForAllPlayers();
   }, []);
 
   const toggleMonster = (monsterId, state) => {
@@ -77,17 +83,30 @@ export default function Play() {
     <React.Fragment>
       <div className={"content-block page-content play"}>
         <h1 className="page-title">{getLocalizedString(["ui", "title"])}</h1>
-        <div className="weapon-list">
+        {/* <div className="weapon-list">
           {ConfigManager.getWeaponClasses().map((weaponClass, index) => {
             return (
-              <InlineIcon
+              <Tooltip
                 key={index}
-                icon={"." + weaponClass}
-                className="weapon-icon"
-              />
+                id={weaponClass+"-tooltip"}
+                className="weapon-tooltip"
+                tooltipContent={getLocalizedString([
+                  "ui",
+                  "game-config",
+                  "weapon-classes",
+                  weaponClass,
+                ])}
+                disabled={false}
+              >
+                <InlineIcon
+                  key={index}
+                  icon={"." + weaponClass}
+                  className="weapon-icon"
+                />
+              </Tooltip>
             );
           })}
-        </div>
+        </div> */}
         <div className="task-display">
           <div className="current-monster">
             {currentMonsters[0] && <MonsterItem monster={currentMonsters[0]} />}
@@ -96,19 +115,7 @@ export default function Play() {
           <div className="player-list">
             {ConfigManager.get("players").map((player, index) => {
               if (index < ConfigManager.get("playerCount")) {
-                return (
-                  <div key={index} className="player">
-                    <p className="player-title">
-                      {player.name}
-                    </p>
-                    <div className="player-weapon">
-                      <InlineIcon
-                        icon={"." + ConfigManager.getWeaponClass(player.weapon)}
-                        className="weapon-icon"
-                      />
-                    </div>
-                  </div>
-                );
+                return <PlayerItem key={index} player={player} />;
               }
             })}
           </div>
@@ -213,6 +220,7 @@ const MonsterItem = ({ monster, toggleMonster, hasCheckBox }) => {
         monster.key,
       ])}
       disabled={false}
+      direction="auto"
     >
       <InlineIcon icon={"." + monster.key} className="monster-icon" />
 
@@ -225,5 +233,31 @@ const MonsterItem = ({ monster, toggleMonster, hasCheckBox }) => {
         />
       )}
     </Tooltip>
+  );
+};
+
+const PlayerItem = ({ player }) => {
+  return (
+    <div className="player-card">
+      <div className="player-weapon">
+        {player.weapon !== undefined && player.weapon !== -1 && (
+          <Tooltip
+            id={player.name + player.weapon}
+            className="weapon-tooltip"
+            tooltipContent={getLocalizedString([
+              "ui",
+              "game-config",
+              "weapon-classes",
+              player.weapon,
+            ])}
+            disabled={false}
+            direction="auto"
+          >
+            <InlineIcon icon={"." + player.weapon} className="weapon-icon" />
+          </Tooltip>
+        )}
+      </div>
+      <p className="player-name">{player.name}</p>
+    </div>
   );
 };
