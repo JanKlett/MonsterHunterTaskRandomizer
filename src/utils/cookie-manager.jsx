@@ -35,7 +35,7 @@ let CookieManager = {
       cookieValue +
       "; " +
       expires +
-      "; path=/; samesite=strict; secure"; 
+      "; path=/; SameSite=Strict; secure"; 
       // path is set to / so that the cookie is available on all pages
       // samesite is set to strict so that the cookie is not sent with cross-site requests
       // secure is set to true so that the cookie is only sent over https
@@ -59,7 +59,7 @@ let CookieManager = {
       // If the cookie with the given name is found, return its value
       if (c.indexOf(name) === 0) return c.substring(name.length, c.length);
     }
-    console.warn("No cookie found with name: " + cookieName);
+    // console.warn("No cookie found with name: " + cookieName);
     // If no cookie with the given name is found, return null
     return null;
   },
@@ -72,7 +72,7 @@ let CookieManager = {
   deleteCookie: function (cookieName) {
     // Set the expire time to a date in the past
     document.cookie =
-      cookieName + "=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/";
+      cookieName + "=; expires=Thu, 01 Jan 1970 00:00:01 GMT; SameSite=Strict; path=/";
   },
 };
 

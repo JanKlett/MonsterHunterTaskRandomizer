@@ -40,7 +40,9 @@ export default function Home() {
   };
 
   const onPopupClose = () => {
+    console.log("Popup closed");
     setPopupOpen(false);
+    ConfigManager.setSaveConfig(false);
     ConfigManager.reset();
   };
 
@@ -70,25 +72,25 @@ export default function Home() {
           <TextBlock
             title={getLocalizedString(["ui", "main", "description", "title"])}
             localizationKeys={["ui", "main", "description", "text1"]}
-            maxLineLength={100}
+            maxLineLength={110}
             hasDivider={true}
             className="home-text-block"
           />
           <TextBlock
             localizationKeys={["ui", "main", "description", "text2"]}
-            maxLineLength={100}
+            maxLineLength={110}
             hasDivider={false}
             className="home-text-block"
           />
           <TextBlock
             localizationKeys={["ui", "main", "description", "text3"]}
-            maxLineLength={100}
+            maxLineLength={110}
             hasDivider={false}
             className="home-text-block"
           />
           <TextBlock
             localizationKeys={["ui", "main", "description", "text4"]}
-            maxLineLength={100}
+            maxLineLength={110}
             hasDivider={false}
             className="home-text-block"
           />
@@ -105,6 +107,8 @@ export default function Home() {
                 onClick={() => {
                   onGameSelect("mhworld");
                 }}
+                id="mhworld-button"
+                tooltipDir="top"
               />
               <ButtonBox
                 className="home-game-button"
@@ -115,6 +119,8 @@ export default function Home() {
                   onGameSelect("mhrise");
                 }}
                 disabled={true}
+                id="mhrise-button"
+                tooltipDir="top"
               />
               <ButtonBox
                 className="home-game-button"
@@ -129,6 +135,8 @@ export default function Home() {
                 onClick={() => {
                   onGameSelect("mhworldiceborne");
                 }}
+                id="mhworldiceborne-button"
+                tooltipDir="bottom"
               />
               <ButtonBox
                 className="home-game-button"
@@ -144,6 +152,8 @@ export default function Home() {
                   onGameSelect("mhrisesunbreak");
                 }}
                 disabled={true}
+                id="mhrisesunbreak-button"
+                tooltipDir="bottom"
               />
             </div>
           </div>
@@ -172,7 +182,7 @@ export default function Home() {
             <TextBlock
               className="home-player-popup-text"
               localizationKeys={["ui", "main", "player-popup", "description"]}
-              maxLineLength={40}
+              maxLineLength={60}
               hasDivider={false}
             />
             <Checkbox

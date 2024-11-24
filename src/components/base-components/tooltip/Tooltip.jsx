@@ -35,8 +35,10 @@ export default function Tooltip(props) {
           tooltip.classList.add("tooltip-dir-" + direction);
         }
       }, 100);
+    } else if (disabled) {
+      return;
     } else {
-      console.warn("Tooltip wrapper not found", id);
+      console.warn("Tooltip wrapper not found:", "tooltip-" + id, disabled);
     }
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
@@ -46,7 +48,7 @@ export default function Tooltip(props) {
       id={"tooltip-" + id}
     >
       <div className="tooltipped-item">{children}</div>
-      {!disabled && (
+      {(disabled !== true) && (
         <div className={"tooltip"}>
           <div className="tooltip-content">{tooltipContent}</div>
         </div>

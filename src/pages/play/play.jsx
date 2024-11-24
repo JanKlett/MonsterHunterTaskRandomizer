@@ -1,9 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
-import { faCaretLeft, faCaretRight } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCaretLeft,
+  faCaretRight,
+  faPlus,
+  faMinus,
+  faRotate,
+} from "@fortawesome/free-solid-svg-icons";
 import InlineIcon from "../../components/base-components/inline-icon/InlineIcon";
 import Tooltip from "../../components/base-components/tooltip/Tooltip";
 import Drawer from "../../components/layout-components/drawer/Drawer";
+import ButtonBox from "../../components/controll-components/button-box/ButtonBox";
+import CheckBox from "../../components/controll-components/check-box/Checkbox";
 import { getLocalizedString } from "../../localization/localization";
 import ConfigManager from "../../utils/config-manager";
 import {
@@ -17,10 +25,9 @@ import {
   selectWeaponForPlayer,
   selectWeaponForAllPlayers,
 } from "../../utils/weapon-randomizer-logic";
+import config from "../../app-config";
 
 import "./play.scss";
-import CheckBox from "../../components/controll-components/check-box/Checkbox";
-import config from "../../app-config";
 
 /**
  * Play page
@@ -34,6 +41,7 @@ export default function Play() {
   const [dlcMonsterList, setDlcMonsterList] = useState([]);
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [currentMonsters, setCurrentMonsters] = useState([null, null]);
+  const [ignored, forceUpdate] = useState(false);
 
   useEffect(() => {
     if (ConfigManager.get("game") === null) {
@@ -61,12 +69,8 @@ export default function Play() {
     setBaseMonsterList(baseMonsters);
     setDlcMonsterList(dlcMonsters);
 
-    // Set the initial monsters
-    let firstMonster = selectMonster();
-    let secondMonster = selectSecondMonster(firstMonster);
-    setCurrentMonsters([firstMonster, secondMonster]);
-    // Select the initial weapons for all players
-    selectWeaponForAllPlayers();
+    // Do the initial setup
+    rerollAll();
   }, []);
 
   const toggleMonster = (monsterId, state) => {
@@ -77,6 +81,37 @@ export default function Play() {
 
   const toggleDrawer = () => {
     setDrawerOpen(!drawerOpen);
+  };
+
+  const addPlayer = () => {
+    ConfigManager.addPlayer();
+    selectWeaponForPlayer(
+      ConfigManager.get("players")[ConfigManager.get("playerCount") - 1]
+    );
+    forceUpdate(!ignored);
+  };
+
+  const removePlayer = (idx) => {
+    ConfigManager.removePlayer(idx);
+    forceUpdate(!ignored);
+  };
+
+  const rerollPlayer = (player) => {
+    selectWeaponForPlayer(player);
+    forceUpdate(!ignored);
+  };
+
+  const rerollMonsters = () => {
+    let firstMonster = selectMonster();
+    let secondMonster = selectSecondMonster(firstMonster);
+    setCurrentMonsters([firstMonster, secondMonster]);
+  };
+
+  const rerollAll = () => {
+    rerollMonsters();
+    selectWeaponForAllPlayers();
+    
+    forceUpdate(!ignored);
   };
 
   return (
@@ -108,17 +143,70 @@ export default function Play() {
           })}
         </div> */}
         <div className="task-display">
+          <h2 className="task-display-title">
+            {getLocalizedString(["ui", "play", "task-display", "title"])}
+          </h2>
           <div className="current-monster">
             {currentMonsters[0] && <MonsterItem monster={currentMonsters[0]} />}
             {currentMonsters[1] && <MonsterItem monster={currentMonsters[1]} />}
+            <ButtonBox
+              className="monster-reroll-button"
+              disabled={false}
+              icon={faRotate}
+              tooltip={getLocalizedString([
+                "ui",
+                "play",
+                "task-display",
+                "reroll-monster",
+              ])}
+              id="reroll-monster"
+              onClick={rerollMonsters}
+            />
           </div>
           <div className="player-list">
             {ConfigManager.get("players").map((player, index) => {
               if (index < ConfigManager.get("playerCount")) {
-                return <PlayerItem key={index} player={player} />;
+                return (
+                  <PlayerItem
+                    key={index}
+                    player={player}
+                    idx={index}
+                    onRemovePlayer={removePlayer}
+                    onRerollPlayer={rerollPlayer}
+                  />
+                );
+              } else if (index === ConfigManager.get("playerCount")) {
+                return (
+                  <div key={index} className="player-card player-button">
+                    <ButtonBox
+                      className="add-player-button"
+                      disabled={false}
+                      icon={faPlus}
+                      title={getLocalizedString([
+                        "ui",
+                        "play",
+                        "task-display",
+                        "add-player",
+                      ])}
+                      onClick={addPlayer}
+                    />
+                  </div>
+                );
               }
             })}
           </div>
+          <ButtonBox
+            className="reroll-all-button"
+            disabled={false}
+            title={getLocalizedString([
+              "ui",
+              "play",
+              "task-display",
+              "reroll-all",
+            ])}
+            id="reroll-all"
+            onClick={rerollAll}
+          />
         </div>
         <Drawer
           mode="overlay"
@@ -236,7 +324,15 @@ const MonsterItem = ({ monster, toggleMonster, hasCheckBox }) => {
   );
 };
 
-const PlayerItem = ({ player }) => {
+const PlayerItem = ({ player, idx, onRerollPlayer, onRemovePlayer }) => {
+  const rerollPlayer = () => {
+    onRerollPlayer(player);
+  };
+
+  const removePlayer = () => {
+    onRemovePlayer(idx);
+  };
+
   return (
     <div className="player-card">
       <div className="player-weapon">
@@ -258,6 +354,32 @@ const PlayerItem = ({ player }) => {
         )}
       </div>
       <p className="player-name">{player.name}</p>
+      <div className="player-challenges"></div>
+      <div className="player-controls">
+        <ButtonBox
+          id={player.name + "-remove"}
+          className="player-controll-button"
+          disabled={false}
+          icon={faMinus}
+          tooltip={getLocalizedString([
+            "ui",
+            "play",
+            "task-display",
+            "remove-player",
+          ])}
+          tooltipDir="top"
+          onClick={removePlayer}
+        />
+        <ButtonBox
+          id={player.name + "-reroll"}
+          className="player-controll-button"
+          disabled={false}
+          icon={faRotate}
+          tooltip={getLocalizedString(["ui", "play", "task-display", "reroll-player"])}
+          tooltipDir="bottom"
+          onClick={rerollPlayer}
+        />
+      </div>
     </div>
   );
 };

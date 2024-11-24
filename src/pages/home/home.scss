@@ -30,8 +30,8 @@
             }
           }
         }
-        .home-game-button:last-child,
-        .home-game-button:nth-child(2) {
+        .button-box-tooltip:last-child,
+        .button-box-tooltip:nth-child(2) {
           opacity: 0.2;
         }
       }
@@ -55,6 +55,7 @@
       }
       .home-player-popup-text {
         margin-top: 0;
+        width: max-content !important;
 
         .text-block-content {
           margin: 0;

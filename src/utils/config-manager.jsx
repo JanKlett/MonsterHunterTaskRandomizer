@@ -1,7 +1,7 @@
 import { getLocalizedString } from "../localization/localization";
 import CookieManager from "./cookie-manager";
 import mhwMonsterList from "../assets/data/mhworld/monster-list.json";
-import {resetMonsterList} from "./monster-randomizer-logic";
+import { resetMonsterList } from "./monster-randomizer-logic";
 
 const weaponClasses = [
   "greatsword",
@@ -56,6 +56,7 @@ const ConfigManager = {
       getDefaultPlayer(2),
       getDefaultPlayer(3),
     ],
+    doubleMonsterChance: 0.5,
     challenges: [],
     allowedMonsters: [],
   },
@@ -90,6 +91,9 @@ const ConfigManager = {
    * @returns {void}
    */
   setGame: (game) => {
+    ConfigManager.setSaveConfig(
+      CookieManager.getCookie("saveConfig") === "true"
+    );
     switch (game) {
       case "mhworldiceborne":
         ConfigManager.config.dlc = true;
@@ -142,7 +146,7 @@ const ConfigManager = {
       ConfigManager.config.playerCount = 4;
     }
     if (!ConfigManager.config.saveConfig) {
-      ConfigManager.players[ConfigManager.config.playerCount - 1] =
+      ConfigManager.config.players[ConfigManager.config.playerCount - 1] =
         getDefaultPlayer(ConfigManager.config.playerCount - 1);
     }
     ConfigManager.save();
@@ -164,6 +168,21 @@ const ConfigManager = {
         getDefaultPlayer(ConfigManager.config.playerCount);
     }
     ConfigManager.save();
+  },
+  /**
+   * Remove a player from the config
+   *
+   * The player is swapped with the last player in the list
+   *
+   * @param {Number} playerIdx Index of the player to remove
+   * @returns {void}
+   */
+  removePlayer: (playerIdx) => {
+    let temp = ConfigManager.config.players[playerIdx];
+    ConfigManager.config.players[playerIdx] =
+      ConfigManager.config.player[ConfigManager.config.playerCount - 1];
+    ConfigManager.config.players[ConfigManager.config.playerCount - 1] = temp;
+    ConfigManager.removePlayer();
   },
   /**
    * Set the player data in the config
@@ -193,9 +212,11 @@ const ConfigManager = {
         ConfigManager.config.dlc ? "+dlc" : ""
       }-config`
     );
-    console.log(`Loading Config: ${ConfigManager.config.game}${
+    console.log(
+      `Loading Config: ${ConfigManager.config.game}${
         ConfigManager.config.dlc ? "+dlc" : ""
-      }-config`);
+      }-config`
+    );
     if (config) {
       ConfigManager.config = JSON.parse(config);
       return true;
@@ -234,7 +255,7 @@ const ConfigManager = {
           ConfigManager.config.dlc ? "+dlc" : ""
         }-config`
       );
-    } else {
+    } else if (ConfigManager.config.game) {
       localStorage.setItem(
         `${ConfigManager.config.game}${
           ConfigManager.config.dlc ? "+dlc" : ""
@@ -269,7 +290,9 @@ const ConfigManager = {
    */
   removeSavedConfig: () => {
     localStorage.removeItem(
-      `${ConfigManager.config.game}${ConfigManager.config.dlc ? "+dlc" : ""}-config`
+      `${ConfigManager.config.game}${
+        ConfigManager.config.dlc ? "+dlc" : ""
+      }-config`
     );
   },
   /**

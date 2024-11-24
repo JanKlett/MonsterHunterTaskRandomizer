@@ -25,7 +25,15 @@
         "start-button": "Start"
       }
     },
-    "play":{
+    "play": {
+      "task-display": {
+        "title": "Current Quest:",
+        "add-player": "Add Player",
+        "remove-player": "Remove Player",
+        "reroll-player": "Reroll Player",
+        "reroll-monster": "Reroll Monster",
+        "reroll-all": "Start the next Quest"
+      },
       "config-drawer": {
         "title": "Configuration",
         "monster-selection": {

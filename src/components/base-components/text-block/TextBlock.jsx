@@ -68,7 +68,7 @@ export default function TextBlock(props) {
   }
 
   return (
-    <div className={"text-block " + (className ? className : "")} style={{width:`calc(${languageMaxLineLength}*1em/2.2)`}}>
+    <div className={"text-block " + (className ? className : "")} style={{width:`calc(${languageMaxLineLength}*1em/${2.2})`}}>
       {title && <h2 className="text-block-title">{title}</h2>}
       {hasDivider && <div className="text-block-divider divider" />}
       <div className="text-block-content">

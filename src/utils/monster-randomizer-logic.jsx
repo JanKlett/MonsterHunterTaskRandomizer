@@ -52,6 +52,11 @@ const selectSecondMonster = (firstMonster) => {
     console.warn("First monster is an event");
     return null;
   }
+  // Check for the double monster chance
+  if (Math.random() < ConfigManager.config.doubleMonsterChance) {
+    console.log("Double monster chance failed");
+    return null;
+  }
   let has_Map = false;
   for (let mapIdx in firstMonster.maps) {
     if (firstMonster.maps[mapIdx]) {

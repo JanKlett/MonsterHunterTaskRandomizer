@@ -41,7 +41,8 @@
   background-color: var(--background);
   z-index: -1;
 }
-.tooltip-wrapper:hover .tooltip {
+.tooltip-wrapper:hover .tooltip,
+.tooltip-wrapper:focus .tooltip {
   display: block;
 }
 .tooltip-dir-top::after {
