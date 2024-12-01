@@ -1,0 +1,211 @@
+[
+    {
+        "id": 0,
+        "key": "palico-only",
+        "isDLC": false,
+        "maxThreatLevel": 10,
+        "excludedChallenges": [
+            1,
+            2,
+            6,
+            8
+        ],
+        "excludedWeapons": [],
+        "isActive": true
+    },
+    {
+        "id": 1,
+        "key": "no-palico",
+        "isDLC": false,
+        "maxThreatLevel": 99,
+        "excludedChallenges": [
+            0
+        ],
+        "excludedWeapons": [],
+        "isActive": true
+    },
+    {
+        "id": 2,
+        "key": "dull-weapon",
+        "isDLC": false,
+        "maxThreatLevel": 7,
+        "excludedChallenges": [
+            0,
+            8
+        ],
+        "excludedWeapons": [
+            "bow",
+            "light-bowgun",
+            "heavy-bowgun"
+        ],
+        "isActive": true
+    },
+    {
+        "id": 3,
+        "key": "hr-equipment",
+        "isDLC": true,
+        "maxThreatLevel": 5,
+        "excludedChallenges": [
+            0
+        ],
+        "excludedWeapons": [],
+        "isActive": true
+    },
+    {
+        "id": 4,
+        "key": "yolo",
+        "isDLC": false,
+        "maxThreatLevel": 99,
+        "excludedChallenges": [],
+        "excludedWeapons": [],
+        "isActive": true
+    },
+    {
+        "id": 5,
+        "key": "no-dodging",
+        "isDLC": false,
+        "maxThreatLevel": 99,
+        "excludedChallenges": [],
+        "excludedWeapons": [],
+        "isActive": true
+    },
+    {
+        "id": 6,
+        "key": "no-coating-special-ammo",
+        "isDLC": false,
+        "maxThreatLevel": 99,
+        "excludedChallenges": [
+            0,
+            2,
+            7,
+            8
+        ],
+        "excludedWeapons": [
+            "great-sword",
+            "long-sword",
+            "sword-and-shield",
+            "dual-blades",
+            "hammer",
+            "hunting-horn",
+            "lance",
+            "gunlance",
+            "switch-axe",
+            "charge-blade",
+            "insect-glaive"
+        ],
+        "isActive": true
+    },
+    {
+        "id": 7,
+        "key": "lance-charge-only",
+        "isDLC": false,
+        "maxThreatLevel": 99,
+        "excludedChallenges": [
+            0,
+            6,
+            8
+        ],
+        "excludedWeapons": [],
+        "isActive": true
+    },
+    {
+        "id": 8,
+        "key": "bombs-only",
+        "isDLC": false,
+        "maxThreatLevel": 6,
+        "excludedChallenges": [
+            0,
+            2,
+            6,
+            7
+        ],
+        "excludedWeapons": [],
+        "isActive": true
+    },
+    {
+        "id": 9,
+        "key": "no-items",
+        "isDLC": false,
+        "maxThreatLevel": 99,
+        "excludedChallenges": [
+            8
+        ],
+        "excludedWeapons": [],
+        "isActive": true
+    },
+    {
+        "id": 10,
+        "key": "survivor",
+        "isDLC": false,
+        "maxThreatLevel": 99,
+        "excludedChallenges": [
+            8
+        ],
+        "excludedWeapons": [],
+        "isActive": true
+    },
+    {
+        "id": 11,
+        "key": "no-armor",
+        "isDLC": false,
+        "maxThreatLevel": 99,
+        "excludedChallenges": [],
+        "excludedWeapons": [],
+        "isActive": true
+    },
+    {
+        "id": 12,
+        "key": "you-are-what-you-hunt",
+        "isDLC": false,
+        "maxThreatLevel": 99,
+        "excludedChallenges": [],
+        "excludedWeapons": [],
+        "isActive": true
+    },
+    {
+        "id": 13,
+        "key": "no-specialized-tools",
+        "isDLC": false,
+        "maxThreatLevel": 99,
+        "excludedChallenges": [],
+        "excludedWeapons": [],
+        "isActive": true
+    },
+    {
+        "id": 14,
+        "key": "back-to-the-pre-dlc-days",
+        "isDLC": false,
+        "maxThreatLevel": 99,
+        "excludedChallenges": [],
+        "excludedWeapons": [],
+        "isActive": true
+    },
+    {
+        "id": 15,
+        "key": "like-in-the-old-days",
+        "isDLC": false,
+        "maxThreatLevel": 99,
+        "excludedChallenges": [],
+        "excludedWeapons": [],
+        "isActive": true
+    },
+    {
+        "id": 16,
+        "key": "no-hud",
+        "isDLC": false,
+        "maxThreatLevel": 99,
+        "excludedChallenges": [],
+        "excludedWeapons": [],
+        "isActive": true
+    },
+    {
+        "id": 17,
+        "key": "no-challenge",
+        "isDLC": false,
+        "maxThreatLevel": 99,
+        "excludedChallenges": [
+        ],
+        "excludedWeapons": [],
+        "isActive": true
+    }
+]

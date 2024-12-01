@@ -145,6 +145,82 @@
         "zorah-magdaros": "Zorah Magdaros"
       }
     },
+    "challenges": {
+      "mhworld": {
+        "palico-only": {
+          "title": "Palico Only",
+          "description": "Only Palicoes are allowed to deal damage. Hunters can only use items and support the Palicoes."
+        },
+        "no-palico": {
+          "title": "No Palico",
+          "description": "Hunt without a Palico."
+        },
+        "dull-weapon": {
+          "title": "Dull Weapon",
+          "description": "Hunt without the use of the whetstone or whetfishscales."
+        },
+        "hr-equipment": {
+          "title": "High Rank Equipment",
+          "description": "Hunt with High Rank Weapon and Armor."
+        },
+        "yolo": {
+          "title": "YOLO",
+          "description": "Abandon quest after the first faint. In Multiplayer, the Player either has to either abandon or wait in the Camp, he may not help any further in the Hunt."
+        },
+        "no-dodging": {
+          "title": "No Dodging",
+          "description": "Hunt without dodge rolling and diving. Avoidance of attacks via spacing or blocking is permitted, if the weapon allows it."
+        },
+        "no-coating-special-ammo": {
+          "title": "No Coating/Special Ammo",
+          "description": "Hunt without using coatings or ammo other than normal shot."
+        },
+        "lance-charge-only": {
+          "title": "Lance Charge Only",
+          "description": "Hunt using only the Lance Charge Attack."
+        },
+        "bombs-only": {
+          "title": "Barrel bombs Only",
+          "description": "Only barrel bombs are allowed to deal damage. You may still use your weapon to trigger the bombs."
+        },
+        "no-items": {
+          "title": "No Items",
+          "description": "Hunt without using any items. You may still use hot/cold drinks, palico gadgets and specialized tools."
+        },
+        "survivor": {
+          "title": "Survivor",
+          "description": "Only use items that have been gathered during the quest. No items from the Item Box are allowed."
+        },
+        "no-armor": {
+          "title": "No Armor",
+          "description": "Hunt without wearing any armor."
+        },
+        "you-are-what-you-hunt": {
+          "title": "You are, what you Hunt",
+          "description": "Only use weapons and armors that require the materials of the monster you're hunting."
+        },
+        "no-specialized-tools": {
+          "title": "No Specialized Tools",
+          "description": "Hunt without using any specialized tools (mantles/boosters)."
+        },
+        "back-to-the-pre-dlc-days": {
+          "title": "Back to the Pre-DLC Days",
+          "description": "Hunt without using any DLC features. This includes all new movesets, clutch claw and firing the slinger while unsheathed."
+        },
+        "like-in-the-old-days": {
+          "title": "Like in the old Days",
+          "description": "Hunt without using any new movesets or the clutch claw. Stand still while using items, no sliding-attacks and no specialized tools (mantles/boosters)."
+        },
+        "no-hud": {
+          "title": "No HUD",
+          "description": "Hunt without the HUD. This includes the minimap, health and stamina bars, sharpness gauge, item bar and monster icons."
+        }, 
+        "no-challenge": {
+          "title": "No Challenge",
+          "description": "No additional challenges."
+        }
+      }
+    },
     "config": {
       "language": {
         "label": "Language: ",

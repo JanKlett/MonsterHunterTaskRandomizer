@@ -1,6 +1,5 @@
 import ConfigManager from "./config-manager";
 
-const sameWeaponRerollChance = 0.5;
 
 const selectWeaponForPlayer = (player) => {
   let weaponList = getWeaponListForPlayer(player);
@@ -8,7 +7,7 @@ const selectWeaponForPlayer = (player) => {
     weaponList[Math.floor(Math.random() * weaponList.length)];
   while (
     player.weapon === selectedWeapon &&
-    Math.random() < sameWeaponRerollChance
+    Math.random() < ConfigManager.get("rerollSameWeaponChance")
   ) {
     selectedWeapon = weaponList[Math.floor(Math.random() * weaponList.length)];
   }

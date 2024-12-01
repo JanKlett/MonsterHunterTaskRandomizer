@@ -25,7 +25,11 @@ import {
   selectWeaponForPlayer,
   selectWeaponForAllPlayers,
 } from "../../utils/weapon-randomizer-logic";
-import config from "../../app-config";
+import {
+  selectChallenge,
+  selectChallengeForAllPlayers,
+  getFullChallengeList,
+} from "../../utils/challenges-randomizer-logic";
 
 import "./play.scss";
 
@@ -36,7 +40,6 @@ import "./play.scss";
  */
 export default function Play() {
   const navigate = useNavigate();
-  const [monsterList, setMonsterList] = useState(getMonsterList());
   const [baseMonsterList, setBaseMonsterList] = useState([]);
   const [dlcMonsterList, setDlcMonsterList] = useState([]);
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -51,8 +54,6 @@ export default function Play() {
         console.log("no config found");
         ConfigManager.removeSavedConfig();
         navigate("/");
-      } else {
-        setMonsterList(getMonsterList());
       }
     }
 
@@ -88,16 +89,21 @@ export default function Play() {
     selectWeaponForPlayer(
       ConfigManager.get("players")[ConfigManager.get("playerCount") - 1]
     );
+    selectChallenge(
+      currentMonsters,
+      ConfigManager.get("players")[ConfigManager.get("playerCount") - 1]
+    );
     forceUpdate(!ignored);
   };
 
   const removePlayer = (idx) => {
-    ConfigManager.removePlayer(idx);
+    ConfigManager.removePlayerByIdx(idx);
     forceUpdate(!ignored);
   };
 
   const rerollPlayer = (player) => {
     selectWeaponForPlayer(player);
+    selectChallenge(currentMonsters, player);
     forceUpdate(!ignored);
   };
 
@@ -105,11 +111,13 @@ export default function Play() {
     let firstMonster = selectMonster();
     let secondMonster = selectSecondMonster(firstMonster);
     setCurrentMonsters([firstMonster, secondMonster]);
+    return [firstMonster, secondMonster];
   };
 
   const rerollAll = () => {
-    rerollMonsters();
+    let monsters = rerollMonsters();
     selectWeaponForAllPlayers();
+    selectChallengeForAllPlayers(monsters);
     
     forceUpdate(!ignored);
   };
@@ -241,6 +249,9 @@ export default function Play() {
                 "description",
               ])}
             </p>
+            <div className="monster-selection-double-chance-control">
+              
+              </div>
             <h4 className="monster-selection-subtitle">
               {getLocalizedString([
                 "ui",
@@ -354,12 +365,39 @@ const PlayerItem = ({ player, idx, onRerollPlayer, onRemovePlayer }) => {
         )}
       </div>
       <p className="player-name">{player.name}</p>
-      <div className="player-challenges"></div>
+      <div className="player-challenges">
+        {player.challenges.map((challenge, index) => {
+          return (
+            <Tooltip
+              key={index}
+              id={player.name + challenge.id}
+              className="challenge-tooltip"
+              tooltipContent={getLocalizedString([
+                "ui",
+                "challenges",
+                ConfigManager.get("game"),
+                challenge.key,
+                "description"
+              ])}
+              disabled={false}
+              direction="auto"
+            >
+              {getLocalizedString([
+                "ui",
+                "challenges",
+                ConfigManager.get("game"),
+                challenge.key,
+                "title"
+              ])}
+            </Tooltip>
+          );
+        })}
+      </div>
       <div className="player-controls">
         <ButtonBox
           id={player.name + "-remove"}
           className="player-controll-button"
-          disabled={false}
+          disabled={ConfigManager.get("playerCount") <= 1}
           icon={faMinus}
           tooltip={getLocalizedString([
             "ui",

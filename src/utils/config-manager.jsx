@@ -1,6 +1,7 @@
 import { getLocalizedString } from "../localization/localization";
 import CookieManager from "./cookie-manager";
 import mhwMonsterList from "../assets/data/mhworld/monster-list.json";
+import mhwChallengeList from "../assets/data/mhworld/challenge-list.json";
 import { resetMonsterList } from "./monster-randomizer-logic";
 
 const weaponClasses = [
@@ -56,7 +57,11 @@ const ConfigManager = {
       getDefaultPlayer(2),
       getDefaultPlayer(3),
     ],
+    allowDoubleMonsters: true,
     doubleMonsterChance: 0.5,
+    doubleChallengeChance: 0.25,
+    rerollSameWeaponChance: 0.5,
+    rerollSameChallengeChance: 0.5,
     challenges: [],
     allowedMonsters: [],
   },
@@ -112,6 +117,9 @@ const ConfigManager = {
         ConfigManager.config.allowedMonsters = mhwMonsterList.map(
           (monster) => !(monster.isDLC && !ConfigManager.config.dlc)
         );
+        ConfigManager.config.challenges = mhwChallengeList.filter(
+          (challenge) => !challenge.isDLC || ConfigManager.config.dlc
+        );
       }
       ConfigManager.save();
       return false;
@@ -164,7 +172,7 @@ const ConfigManager = {
       ConfigManager.config.playerCount = 1;
     }
     if (!ConfigManager.config.saveConfig) {
-      ConfigManager.players[ConfigManager.config.playerCount] =
+      ConfigManager.config.players[ConfigManager.config.playerCount] =
         getDefaultPlayer(ConfigManager.config.playerCount);
     }
     ConfigManager.save();
@@ -177,10 +185,10 @@ const ConfigManager = {
    * @param {Number} playerIdx Index of the player to remove
    * @returns {void}
    */
-  removePlayer: (playerIdx) => {
+  removePlayerByIdx: (playerIdx) => {
     let temp = ConfigManager.config.players[playerIdx];
     ConfigManager.config.players[playerIdx] =
-      ConfigManager.config.player[ConfigManager.config.playerCount - 1];
+      ConfigManager.config.players[ConfigManager.config.playerCount - 1];
     ConfigManager.config.players[ConfigManager.config.playerCount - 1] = temp;
     ConfigManager.removePlayer();
   },

@@ -16,7 +16,7 @@ const resetMonsterList = () => {
 };
 
 const getFullMonsterList = () => {
-  if (ConfigManager.config.game === "mhworld") {
+  if (ConfigManager.get("game") === "mhworld") {
     return mhwMonsterList;
   }
   return [];
@@ -27,8 +27,8 @@ const applyConfigToMonsterList = () => {
     return;
   }
   let removedMonsters = 0;
-  for (let i = 0; i < ConfigManager.config.allowedMonsters.length; i++) {
-    if (!ConfigManager.config.allowedMonsters[i]) {
+  for (let i = 0; i < ConfigManager.get("allowedMonsters").length; i++) {
+    if (!ConfigManager.get("allowedMonsters")[i]) {
       currentMonsterList.splice(i-removedMonsters, 1);
       // i--;
       removedMonsters++;
@@ -43,18 +43,16 @@ const selectMonster = () => {
 };
 
 const selectSecondMonster = (firstMonster) => {
+  // Check config if double monster chance is enabled and if it fails
+  if (ConfigManager.get("allowDoubleMonsters") && Math.random() < ConfigManager.get("doubleMonsterChance")) {
+    return null;
+  }
   // Check if the first monster is valid for duo
   if (firstMonster === null || firstMonster === undefined) {
     console.warn("First monster is invalid");
     return null;
   }
   if (firstMonster.isEvent) {
-    console.warn("First monster is an event");
-    return null;
-  }
-  // Check for the double monster chance
-  if (Math.random() < ConfigManager.config.doubleMonsterChance) {
-    console.log("Double monster chance failed");
     return null;
   }
   let has_Map = false;
@@ -65,7 +63,6 @@ const selectSecondMonster = (firstMonster) => {
     }
   }
   if (!has_Map) {
-    console.warn("First monster does not have a valid map");
     return null;
   }
 
