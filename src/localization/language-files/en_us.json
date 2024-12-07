@@ -35,10 +35,17 @@
         "reroll-all": "Start the next Quest"
       },
       "config-drawer": {
-        "title": "Configuration",
-        "monster-selection": {
-          "title": "Monster Selection",
-          "description": "Select the monsters that you want to appear in tasks.",
+        "title": "Settings",
+        "player-config": {
+          "title": "Player Settings",
+          "player-name": "Player Name",
+          "allowed-weapons": "Possible Weapons",
+          "double-challenge-chance": "Chance for 2 Challenges"
+        },
+        "monster-config": {
+          "title": "Monster Settings",
+          "double-monster-chance": "Chance for 2 Monsters",
+          "description": "Select the monsters that can appear in tasks.",
           "base-monsters": "Base Monsters",
           "dlc-monsters": "DLC Monsters",
           "select-all": "Select All",

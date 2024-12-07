@@ -44,7 +44,7 @@ const selectMonster = () => {
 
 const selectSecondMonster = (firstMonster) => {
   // Check config if double monster chance is enabled and if it fails
-  if (ConfigManager.get("allowDoubleMonsters") && Math.random() < ConfigManager.get("doubleMonsterChance")) {
+  if (ConfigManager.get("allowDoubleMonsters") && Math.random() > ConfigManager.get("doubleMonsterChance")) {
     return null;
   }
   // Check if the first monster is valid for duo
@@ -63,6 +63,11 @@ const selectSecondMonster = (firstMonster) => {
     }
   }
   if (!has_Map) {
+    return null;
+  }
+  // Check if enough monsters are available for duo
+  if (getMonsterList().filter((monster) => monster.isEvent).length < 2) {
+    console.warn("Not enough monsters for duo");
     return null;
   }
 

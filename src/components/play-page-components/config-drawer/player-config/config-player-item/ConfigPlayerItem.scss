@@ -1,0 +1,26 @@
+.player-config-player{
+    padding: 1em;
+    margin-bottom: 1em;
+    border: 1px solid var(--border);
+    .player-config-name{
+
+    }
+    .player-config-allowed-weapons{
+        .player-config-allowed-weapons-title{
+
+        }
+        .player-config-allowed-weapons-list{
+            display: grid;
+            grid-template-columns: repeat(14, 1fr);
+
+            .weapon-card{
+                .weapon-icon{
+
+                }
+                .weapon-checkbox{
+
+                }
+            }
+        }
+    }
+}

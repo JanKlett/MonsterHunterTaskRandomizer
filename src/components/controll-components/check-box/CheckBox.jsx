@@ -1,5 +1,5 @@
 import React from "react";
-import { faSquareCheck} from "@fortawesome/free-solid-svg-icons";
+import { faSquareCheck } from "@fortawesome/free-solid-svg-icons";
 import InlineIcon from "../../base-components/inline-icon/InlineIcon";
 
 import "./CheckBox.scss";
@@ -15,23 +15,29 @@ import "./CheckBox.scss";
  * @returns {JSX.Element} the checkbox
  */
 export default function CheckBox(props) {
-  const { label, checked, onChange, className, dir } = props;
+  const { label, checked, onChange, className, dir, disabled } = props;
 
   const onCheck = () => {
+    if (disabled === true) {
+      return;
+    }
     onChange(!checked);
   };
 
   return (
-    <div className={"check-box-wrapper " + (className && className)}>
+    <div
+      className={
+        "check-box-wrapper " +
+        (className && className) +
+        (disabled ? " disabled" : "")
+      }
+    >
       {dir === "rtl" ? (
         <>
           <div className={"check-box "} onClick={onCheck}>
             {checked && (
               <div className="check-box-checkmark">
-                <InlineIcon
-                  icon={faSquareCheck}
-                  className="checkbox-check"
-                />
+                <InlineIcon icon={faSquareCheck} className="checkbox-check" />
               </div>
             )}
           </div>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import "./TextInput.scss";
 
@@ -38,6 +38,10 @@ export default function TextInput({
       onChange(event.target.value, inputValue);
     }
   };
+
+  useEffect(() => {
+    setInputValue(value);
+  }, [value]);
 
   return (
     <div

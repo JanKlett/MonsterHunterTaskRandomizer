@@ -1,0 +1,19 @@
+.monster-card > .tooltipped-item {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  .monster-icon {
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+  }
+  .monster-name {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 1rem;
+    display: none;
+  }
+}

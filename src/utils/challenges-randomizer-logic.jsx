@@ -49,7 +49,7 @@ const selectChallenge = (currentMonsters, player) => {
   }
 
   // Check if it's the two challenges challenge
-  if (Math.random() < ConfigManager.get("doubleChallengeChance")) {
+  if (Math.random() < player.doubleChallengeChance) {
     // Select the second challenge
     let secondChallenge =
       challengeList[Math.floor(Math.random() * challengeList.length)];

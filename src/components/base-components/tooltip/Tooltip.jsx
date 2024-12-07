@@ -14,7 +14,7 @@ import "./Tooltip.scss";
  * @returns
  */
 export default function Tooltip(props) {
-  const { children, tooltipContent, disabled, direction, id, className } =
+  const { children, tooltipContent, disabled, direction, id, className, style } =
     props;
 
   useEffect(() => {
@@ -49,7 +49,7 @@ export default function Tooltip(props) {
     >
       <div className="tooltipped-item">{children}</div>
       {(disabled !== true) && (
-        <div className={"tooltip"}>
+        <div className={"tooltip"} style={style}>
           <div className="tooltip-content">{tooltipContent}</div>
         </div>
       )}

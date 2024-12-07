@@ -1,0 +1,17 @@
+.config-drawer {
+  right: 0;
+  max-width: 40%;
+  padding: 20px;
+  z-index: 101;
+  cursor: auto;
+  overflow-y: auto;
+
+  .config-drawer-title {
+    margin-top: 0;
+  }
+
+  .drawer-button {
+    left: 0;
+  }
+
+}

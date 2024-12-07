@@ -1,0 +1,9 @@
+.monster-config{
+    .monster-config-grid {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-gap: 10px;
+        margin-top: 20px;
+      }
+
+}

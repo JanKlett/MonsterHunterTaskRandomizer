@@ -30,9 +30,25 @@ const getDefaultPlayer = (index) => {
         "default-player-names",
         "player" + (index + 1),
       ]),
-      allowedWeapons: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+      allowedWeapons: [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+      ],
       weapon: -1,
       challenges: [-1],
+      doubleChallengeChance: 0.25,
     })
   );
 };
@@ -42,29 +58,30 @@ const dlcNames = {
   mhrise: "sunbreak",
 };
 
+const defaultConfig = {
+  game: null,
+  dlc: false,
+  playerCount: 1,
+  players: [
+    getDefaultPlayer(0),
+    getDefaultPlayer(1),
+    getDefaultPlayer(2),
+    getDefaultPlayer(3),
+  ],
+  allowDoubleMonsters: true,
+  doubleMonsterChance: 0.5,
+  rerollSameWeaponChance: 0.5,
+  rerollSameChallengeChance: 0.5,
+  challenges: [],
+  allowedMonsters: [],
+};
+
 /**
  * Config manager
  */
 const ConfigManager = {
   saveConfig: CookieManager.getCookie("saveConfig") === "true",
-  config: {
-    game: null,
-    dlc: false,
-    playerCount: 1,
-    players: [
-      getDefaultPlayer(0),
-      getDefaultPlayer(1),
-      getDefaultPlayer(2),
-      getDefaultPlayer(3),
-    ],
-    allowDoubleMonsters: true,
-    doubleMonsterChance: 0.5,
-    doubleChallengeChance: 0.25,
-    rerollSameWeaponChance: 0.5,
-    rerollSameChallengeChance: 0.5,
-    challenges: [],
-    allowedMonsters: [],
-  },
+  config: JSON.parse(JSON.stringify(defaultConfig)),
   /**
    * Get the value of the config key
    *
@@ -278,19 +295,7 @@ const ConfigManager = {
    * and remove the saveConfig cookie
    */
   reset: () => {
-    ConfigManager.config = {
-      game: null,
-      dlc: false,
-      playerCount: 1,
-      players: [
-        getDefaultPlayer(0),
-        getDefaultPlayer(1),
-        getDefaultPlayer(2),
-        getDefaultPlayer(3),
-      ],
-      challenges: [],
-      allowedMonsters: [],
-    };
+    ConfigManager.config = JSON.parse(JSON.stringify(defaultConfig));
     CookieManager.deleteCookie("saveConfig");
   },
   /**
@@ -335,7 +340,7 @@ const ConfigManager = {
    * @param {Boolean} state the new state of the monster
    */
   toggleMonster: (monsterId, state) => {
-    console.log(`Toggling monster ${monsterId} to ${state}`);
+    // console.log(`Toggling monster ${monsterId} to ${state}`);
     ConfigManager.config.allowedMonsters[monsterId] = state;
     ConfigManager.save();
     resetMonsterList();
